@@ -3281,33 +3281,12 @@ function getOptions(options) {
 
 function getPlacement(value, modifiers) {
 	var placement = value.placement;
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
-
-	try {
-		for (var _iterator = positions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-			var pos = _step.value;
-
-			if (modifiers[pos]) {
-				placement = pos;
-			}
-		}
-	} catch (err) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if (!_iteratorNormalCompletion && _iterator.return) {
-				_iterator.return();
-			}
-		} finally {
-			if (_didIteratorError) {
-				throw _iteratorError;
-			}
+	for (var i = 0; i < positions.length; i++) {
+		var pos = positions[i];
+		if (modifiers[pos]) {
+			placement = pos;
 		}
 	}
-
 	return placement;
 }
 
